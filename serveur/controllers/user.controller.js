@@ -13,10 +13,10 @@ const createUser = (req, res) => {
   // vérifier si les champs sont remplis
   if (!nom || !prenom || !adresse || !code_postal || !ville || !telephone || !email) {
     return res.status(400).json({
-      error: 'email ou mdp manquant',
+      error: 'donnée manquante',
     })
   }
-  const query = 'INSERT INTO user (nom, prenom, adresse, code postal, ville, téléphone, email ) VALUES (?,?,?,?,?,?,?)';
+  const query = 'INSERT INTO user (nom, prenom, adresse, code_postal, ville, telephone, email ) VALUES (?,?,?,?,?,?,?)';
   conn.query(query, [nom, prenom, adresse, code_postal, ville, telephone, email], (err) => {
     if (err) { // on utilise l'une des deux fonctions suivantes
       console.error('erreur lors de l\'insertion des données : ' + err);
