@@ -18,7 +18,7 @@ const createUser = (req, res) => {
   }
   const query = 'INSERT INTO user (nom, prenom, adresse, code_postal, ville, telephone, email ) VALUES (?,?,?,?,?,?,?)';
   conn.query(query, [nom, prenom, adresse, code_postal, ville, telephone, email], (err) => {
-    if (err) { // on utilise l'une des deux fonctions suivantes
+    if (err) {
       console.error('erreur lors de l\'insertion des données : ' + err);
       res.status(500).json({ error: 'erreur lors de l\'insertion des données' });
     } else {
@@ -27,6 +27,36 @@ const createUser = (req, res) => {
   });
 };
 
+const updateUser = (req, res) => {
+  const { nom, prenom, adresse, code_postal, ville, telephone, email } = req.body;
+  const query = 'UPDATE user SET nom = ?, prenom = ?, adresse = ?, code_postal = ?, ville = ?, telephone = ?, email = ? WHERE id = ?';
+  conn.query(query, [nom, prenom, adresse, code_postal, ville, telephone, email, req.params.id], (err) => {
+    if (err) {
+      console.error('Erreur lors de la modification de l\'utilisateur: ' + err);
+      res.status(500).json({
+        error: 'Erreur lors de la modification de l\'utilisateur'
+      });
+    } else {
+      console.log(res);
+      res.status(200).json({ message: 'Utilisateur modifié' });
+    }
+  });
+};
+
+const deleteUser = (req, res) => {
+  const query = 'DELETE FROM user WHERE id =?'
+  conn.query(query, [req.params.id], (err, result) => {
+    if (err) {
+      console.error('Erreur lors de la suppression des données : ' + err);
+      res.status(500).json({ error: 'Erreur lors de la suppression des données' });
+    } else {
+      res.status(200).json({ message: 'Utilisateur supprimé' });
+    }
+  })
+};
+
 module.exports = {
   createUser,
+  updateUser,
+  deleteUser,
 };

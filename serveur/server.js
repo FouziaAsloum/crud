@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Use cors
 app.use
   (cors({
-    origin: 'http://127.0.0.1:5000',
+    origin: 'http://localhost:5500',
     optionsSuccessStatus: 200,
   })
   );
@@ -38,7 +38,7 @@ app.use('/', userRoutes);
 const start = async () => {
   try {
     await connectDB();
-    const port = process.env.PORT || 5500;
+    const port = process.env.PORT || 6000;
     app.listen(port, () => {
       console.log(`Le serveur à démarré sur le port ${port}`);
     })
