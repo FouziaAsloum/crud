@@ -55,8 +55,25 @@ const deleteUser = (req, res) => {
   })
 };
 
+const getAllUsers = (req, res) => {
+  const query = 'SELECT * FROM user';
+  conn.query(query, (err, result) => {
+    if (err) {
+      console.error('Erreur de la récupération des données ' + err);
+      res.status(500).json({ error: 'Erreur lors de la récupération des données' });
+    } else {
+      res.status(200).json(result);
+    }
+  }
+
+  )
+}
+
+
+
 module.exports = {
   createUser,
   updateUser,
   deleteUser,
+  getAllUsers,
 };
