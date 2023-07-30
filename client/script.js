@@ -48,8 +48,7 @@ function addUser(event) {
   document.getElementById("userList").appendChild(li);
 
   // Réinitialiser le formulaire
-  document.getElementById("userForm").reset();
+  document.getElementById("userData").reset();
 }
-
 // Écouter l'événement de soumission du formulaire et appeler la fonction addUser
-document.getElementById("userForm").addEventListener("submit", addUser);
+document.getElementById("userData").addEventListener("submit", addUser);
