@@ -1,4 +1,4 @@
-let xiao_suki = document.getElementById('xiao_suki')
+let xiao = document.getElementById('xiao')
 let url = 'http://localhost:8000/all';
 
 fetch(url)
@@ -15,4 +15,4 @@ fetch(url)
   })
 
   .catch(error => console.error(error));
-console.log(xiao_suki);
+console.log(xiao);
