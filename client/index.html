@@ -14,33 +14,13 @@
 
   <div class="xiao_header">
     <h1>CRUD</h1>
-    <nav class="infos">
-      <ul>
-        <li>Nom</li>
-        <li>Prénom</li>
-        <li>Adresse</li>
-        <li>Code postal</li>
-        <li>Ville</li>
-        <li>Téléphone</li>
-        <li>Email</li>
-        <li>Modifier</li>
-        <li>Supprimer</li>
-      </ul>
-    </nav>
-  </div>
-
-
-  <!--DIV XIAO AVEC MON FORM-->
-
-  <div id="xiao" class="xiao">
-
-    <table>
-      <thead id="userData">
+    <table class="infos">
+      <thead>
         <tr>
           <th>Nom</th>
           <th>Prénom</th>
           <th>Adresse</th>
-          <th>Code Postal</th>
+          <th>Code postal</th>
           <th>Ville</th>
           <th>Téléphone</th>
           <th>Email</th>
@@ -51,8 +31,45 @@
 
       <tbody id="resultat">
       </tbody>
-
     </table>
+  </div>
+
+
+  <!--DIV XIAO AVEC MON FORM-->
+
+  <div id="xiao" class="xiao">
+
+    <div class="modal">
+      <div class="modal_header">
+        <h1>INSCRIPTION</h1>
+      </div>
+      <form id="modalForm">
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" required>
+
+        <label for="prénom">Prénom</label>
+        <input type="text" id="prénom" name="prénom" required>
+
+        <label for="adress">Adresse</label>
+        <input type="text" id="adress" name="adress" required>
+
+        <label for="cp">Code postal</label>
+        <input type="number" id="cp" name="cp" required>
+
+        <label for="ville">Ville</label>
+        <input type="text" id="ville" name="ville" required>
+
+        <label for="tel">Téléphone</label>
+        <input type="number" id="tel" name="tel" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </form>
+
+      <div class="modal_footer">
+        <button type="submit">Enregistrer</button>
+      </div>
+    </div>
 
 
 
@@ -73,28 +90,3 @@
 </body>
 
 </html>
-
-<!-- <form id="userForm">
-  <label for="nom">Nom</label>
-  <input type="text" id="nom" name="nom" required>
-
-  <label for="prénom">Prénom</label>
-  <input type="text" id="prénom" name="prénom" required>
-
-  <label for="adress">Adresse</label>
-  <input type="text" id="adress" name="adress" required>
-
-  <label for="cp">Code postal</label>
-  <input type="number" id="cp" name="cp" required>
-
-  <label for="ville">Ville</label>
-  <input type="text" id="ville" name="ville" required>
-
-  <label for="tel">Téléphone</label>
-  <input type="number" id="tel" name="tel" required>
-
-  <label for="email">Email</label>
-  <input type="email" id="email" name="email" required>
-
-  <button type="submit">Enregistrer</button>
-</form> -->
