@@ -15,7 +15,7 @@
   <div class="xiao_header">
     <h1>CRUD</h1>
     <table class="infos">
-      <thead>
+      <thead class="title">
         <tr>
           <th>Nom</th>
           <th>Prénom</th>
@@ -48,7 +48,7 @@
         <input type="text" id="nom" name="nom" required>
 
         <label for="prénom">Prénom</label>
-        <input type="text" id="prénom" name="prénom" required>
+        <input type="text" id="prenom" name="prénom" required>
 
         <label for="adress">Adresse</label>
         <input type="text" id="adress" name="adress" required>
@@ -64,10 +64,12 @@
 
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
+
+        <input type="submit" value="Enregistrer">
       </form>
 
       <div class="modal_footer">
-        <button type="submit">Enregistrer</button>
+        <button id="close" type="submit">Enregistrer</button>
       </div>
     </div>
 
@@ -83,7 +85,7 @@
   <!--FOOTER-->
 
   <footer>
-    <button class="add">Ajouter un utilisateur</button>
+    <button id="add">Ajouter un utilisateur</button>
   </footer>
 
   <script src="script.js"></script>
