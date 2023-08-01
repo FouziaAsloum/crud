@@ -93,7 +93,8 @@ fetch(url)
   .then((response) => response.json())
   .then((data) => {
     // Affiche les utilisateurs dans le tableau
-    displayUsers(data.result);
+    displayUsers(data);
+    console.log(data);
   })
   .catch((error) => console.error('Erreur lors de la récupération des utilisateurs:', error));
 
@@ -109,6 +110,7 @@ const refreshTable = () => {
       const usersTableBody = document.getElementById('resultat');
       usersTableBody.innerHTML = '';
 
+
       // Afficher les utilisateurs dans le tableau à partir des dernières données
       displayUsers(data.result);
     })
@@ -118,6 +120,7 @@ const refreshTable = () => {
 
 
 const displayUsers = (users) => {
+  const name = document.getElementById('name');
   const usersTableBody = document.getElementById('resultat');
   if (!Array.isArray(users)) {
     // Si users n'est pas un tableau, le transformer en tableau contenant l'objet unique
@@ -128,17 +131,22 @@ const displayUsers = (users) => {
   // Parcours les utilisateurs et ajoute chaque ligne au tableau
   users.forEach((user) => {
     const row = document.createElement('tr');
+    const tdname = document.createElement('td');
+    name.appendChild(tdname);
+    console.log(user);
+    tdname.innerText = user.nom;
 
     // Ajoute chaque champ de l'utilisateur en tant que cellule dans la ligne
-    const fields = ['nom', 'prenom', 'adresse', 'code_postal', 'ville', 'telephone', 'email'];
-    fields.forEach((field) => {
-      // Vérifier si la clé est différente de "id"
-      if (field !== "id") {
-        const cell = document.createElement('td');
-        cell.textContent = user[field];
-        row.appendChild(cell);
-      }
-    });
+    // const fields = ['nom', 'prenom', 'adresse', 'code_postal', 'ville', 'telephone', 'email'];
+    // fields.forEach((field) => {
+    //   // Vérifier si la clé est différente de "id"
+    //   if (field !== "id") {
+    //     console.log(field);
+    //     const cell = document.createElement('td');
+    //     cell.textContent = users[field];
+    //     row.appendChild(cell);
+    //   }
+    // });
     // const openEditModal = (user) => {
     //   const editModal = document.getElementById('editModal');
     //   editModal.style.display = 'block';
