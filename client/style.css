@@ -6,10 +6,57 @@
   font-family: 'Macondo Swash Caps', cursive;
 }
 
-td{
+
+/* thead{
   display: flex;
-  flex-direction: column;
+  width: 1440px;
+  padding: 7px 39px 7px 21px;
+  justify-content: center;
+  align-items: center;
+  gap: 53px;
+  border: 1px solid #000;
+  background: rgba(76, 184, 143, 0.25);
+} */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #01BDE7;
 }
+
+table,
+th,
+td {
+  border: 1px solid black;
+
+}
+
+th,
+td {
+  padding: 8px;
+}
+
+th {
+  background: #01BDE7;
+  font-style: italic;
+  font-family: Inter;
+  font-size: 20px;
+}
+
+/* th{
+  display: flex;
+  width: 90px;
+  height: 39px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #0B0101;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100px;
+} */
 
 #xiao{
   display: none;
@@ -98,3 +145,4 @@ footer .add{
   background: #4CB88F;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
