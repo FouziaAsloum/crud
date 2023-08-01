@@ -58,5 +58,53 @@ const displayUsers = (users) => {
 };
 
 
+const openModal = () => {
+  const modal = document.getElementById('xiao');
+  modal.style.display = 'block';
+};
+
+// Fonction pour fermer la modale
+const closeModal = () => {
+  const modal = document.getElementById('xiao');
+  modal.style.display = 'none';
+};
+
+// Récupérer le bouton pour ouvrir la modale
+const openModalButton = document.getElementById('add');
+// Ajouter un écouteur d'événement pour ouvrir la modale lorsque le bouton est cliqué
+openModalButton.addEventListener('click', openModal);
+
+
+// Fonction pour gérer la soumission du formulaire
+const modalForm = document.getElementById('modalForm');
+modalForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const formData = new FormData(modalForm);
+  const userData = {};
+  formData.forEach((value, key) => {
+    userData[key] = value;
+  });
+
+  fetch('/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  })
+    .then((response) => response.json())
+    .then((users) => {
+      refreshTable();
+    })
+    .catch((error) => console.error('Erreur lors de l\'enregistrement de l\'utilisateur:', error));
+
+  // Réinitialise le formulaire
+  modalForm.reset();
+
+  closeModal();
+
+});
+
 
 
