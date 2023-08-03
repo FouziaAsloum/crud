@@ -38,7 +38,7 @@
 
   <!--DIV XIAO AVEC MON FORM-->
 
-  <div id="modalContainer">
+  <div id="modalContainer" role="dialog">
 
     <div id="xiao" class="xiao">
 
@@ -68,21 +68,20 @@
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required>
 
-          <input type="submit" value="Enregistrer">
-        </form>
 
-        <div class="modal_footer">
-          <button id="close" type="submit">Enregistrer</button>
-        </div>
+          <div class="modal_footer">
+            <input id="register" type="submit" value="Enregistrer">
+        </form>
       </div>
     </div>
+  </div>
 
 
 
 
-    <ul id="userList">
-      <!-- Ici seront affichés les utilisateurs ajoutés -->
-    </ul>
+  <ul id="userList">
+    <!-- Ici seront affichés les utilisateurs ajoutés -->
+  </ul>
 
   </div>
 
