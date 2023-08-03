@@ -135,6 +135,15 @@ td{
   letter-spacing: 3.2px;
 }
 
+
+#modalContainer{
+  padding: auto;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
 .modal{
   width: 501px;
   height: 715px;
@@ -143,6 +152,12 @@ td{
   border: 1px solid #4CB88F;
   background: rgba(249, 255, 252, 0.25);
   box-shadow: 8px 5px 4px 0px rgba(76, 184, 143, 0.25);
+}
+
+
+.modal_header{
+  display: flex;
+  justify-content: center;
 }
 
 
