@@ -163,33 +163,42 @@ let url2 = 'http://localhost:8000/register';
 
 fetch(url)
   .then(response => {
+    console.log(response);
     response.json()
       .then(data => {
+        console.log(data);
         // Affiche les utilisateurs dans le tableau
         displayUsers(data);
         console.log(data);
+
+
       })
+
+
       .catch(error => console.error('Erreur lors de la récupération des utilisateurs:', error));
 
+
+
+
+    const refreshTable = () => {
+      // Récupérer les utilisateurs depuis le backend
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          // Vider le contenu actuel du tableau
+          const usersTableBody = document.getElementById('resultat');
+          usersTableBody.innerHTML = '';
+
+
+          // Afficher les utilisateurs dans le tableau à partir des dernières données
+          displayUsers(data.result);
+        })
+
+        .catch((error) => console.error('Erreur lors de la récupération des utilisateurs:', error));
+
+    }
+
   })
-
-
-const refreshTable = () => {
-  // Récupérer les utilisateurs depuis le backend
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      // Vider le contenu actuel du tableau
-      const usersTableBody = document.getElementById('resultat');
-      usersTableBody.innerHTML = '';
-
-
-      // Afficher les utilisateurs dans le tableau à partir des dernières données
-      displayUsers(data.result);
-    })
-
-    .catch((error) => console.error('Erreur lors de la récupération des utilisateurs:', error));
-};
 
 
 
@@ -214,10 +223,13 @@ const displayUsers = (users) => {
         row.appendChild(cell);
         usersTableBody.appendChild(row);
       }
+
     });
+
   });
 
 };
+
 
 
 const openModal = () => {
@@ -273,4 +285,3 @@ modalForm.addEventListener('submit', () => {
   // modalForm.reset();
   // closeModal();
 });
-
